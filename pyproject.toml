@@ -1,0 +1,24 @@
+[tool.poetry]
+name = "fiatjafbuzz"
+version = "0.1.0"
+description = ""
+authors = ["tp <tpireaux@gmail.com>"]
+
+[tool.poetry.scripts]
+run-bot = "fiatjafbuzz.main:main"
+set-profile = "fiatjafbuzz.scripts.set_profile:main"
+gen-key = "fiatjafbuzz.scripts.generate_key:main"
+
+[tool.poetry.dependencies]
+python = "^3.13"
+nostr = "^0.0.2"
+python-dotenv = "^1.0.1"
+pydantic-settings = "^2.7.1"
+pydantic = "^2.10.6"
+flower = "^2.0.1"
+celery = {extras = ["redis"], version = "^5.4.0"}
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

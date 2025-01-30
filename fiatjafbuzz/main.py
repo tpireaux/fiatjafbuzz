@@ -50,13 +50,14 @@ def main():
         private_key_hex=settings.private_key_hex, relays=settings.relays_list
     )
 
-    time.sleep(1.5)
+    try:
+        time.sleep(1.5)
+        logger.info(f"Publishing event: {message}")
+        relay_service.publish_event(content=message)
+        logger.info(f"Published event: {message}")
+    except Exception as e:
+        logger.error(f"Error publishing fiatjafbuzz event: {e}")
+    finally:
+        time.sleep(2)
+        relay_service.close()
 
-    logger.info(f"Publishing event: {message}")
-
-    relay_service.publish_event(content=message)
-
-    logger.info(f"Published event: {message}")
-
-    time.sleep(2)
-    relay_service.close()

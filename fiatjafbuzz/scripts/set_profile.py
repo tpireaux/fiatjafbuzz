@@ -36,5 +36,3 @@ def main():
         logger.error(f"Error publishing profile event: {e}")
     finally:
         relay_service.close()
-
-    relay_service.close()
